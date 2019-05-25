@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   root to: "histories#index"
-  resources :histories, only: [:index, :new, :create]
+  
+  resources :histories, only: [:index, :new, :create, :update]
 end

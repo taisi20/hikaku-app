@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_105416) do
+ActiveRecord::Schema.define(version: 2019_05_25_082845) do
 
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "count"
+    t.integer "count", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

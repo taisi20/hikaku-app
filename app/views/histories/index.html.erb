@@ -3,22 +3,32 @@
     <h1>楽天・Amazon比較</h1>
 
     <%= form_with(model: @history , local: true) do |f| %>
+      <%= render "layouts/errors_messages", model: f.object %>
       <div class="form-group">
         <%= f.label :name, "検索する商品をご入力ください。※15文字以内" %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
-      
       <%= f.submit "検索", class: "btn btn-primary btn-block" %>
     <% end %>
     
     <% if @histories.any? %>
-      <ul class="list-unstyled">
-        <% @histories.each do |history| %>
-          <li><%= link_to history.name,history %></li>
-        <% end %>
-      </ul>
-      <%= paginate @histories %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>全ユーザー直近の検索履歴</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @histories.each do |history| %>
+            <tr>
+              <td><%= link_to history.name, "histories#index" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div>
+        <%= paginate @histories %>
+      </div>
     <% end %>
   </div>
 </div>
-
