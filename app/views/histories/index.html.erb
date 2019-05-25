@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2 mt-4">
+    <h1>楽天・Amazon比較</h1>
+
+    <%= form_with(model: @history , local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "検索する商品をご入力ください。※15文字以内" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      
+      <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+    <% end %>
+    
+    <% if @histories.any? %>
+      <ul class="list-unstyled">
+        <% @histories.each do |history| %>
+          <li><%= link_to history.name,history %></li>
+        <% end %>
+      </ul>
+      <%= paginate @histories %>
+    <% end %>
+  </div>
+</div>
+
