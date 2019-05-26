@@ -20,21 +20,9 @@ class HistoriesController < ApplicationController
     end
   end
   
-  def update
-  end
-  
   private
   #strong_parameters
   def history_params
     params.require(:history).permit(:name)
-  end
-  
-  #すでに検索されている文字列かどうか
-  def this_string(name)
-    search_keyword ||= History.find_by(name: name)
-  end
-  
-  def searched?(name)
-    !!this_string(name)
   end
 end

@@ -61,3 +61,6 @@ gem "kaminari"
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
+
+#楽天API
+gem 'rakuten_web_service'
