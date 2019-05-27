@@ -1,7 +1,7 @@
 class HistoriesController < ApplicationController
   def index
     @history = History.new
-    @histories = History.order(count: :desc).page(params[:page]).per(20)
+    @histories = History.order(id: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -9,14 +9,17 @@ class HistoriesController < ApplicationController
   end
 
   def create
-    @histories = History.order(count: :desc).page(params[:page]).per(20)
+    @histories = History.order(id: :desc).page(params[:page]).per(20)
     @history = History.new(history_params)
-    if @history.save
-      flash[:success] = "正常に検索されました。"
-      redirect_to histories_path
-    else
-      flash.now[:danger] = "検索に失敗しました。"
-      render :index
+    if @history.new_record?
+      if @history.save
+        flash[:success] = "正常に検索されました。"
+        redirect_to new_item_path
+      else
+        flash.now[:danger] = "検索に失敗しました。"
+        render :index
+      end
+    #else ここにすでに検索されている文字列も場合の処理をかく
     end
   end
   

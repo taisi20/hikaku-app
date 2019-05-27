@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2 mt-4">
+    <div>
+      <%= link_to "TOPページへ戻る", histories_path, class: "btn btn-primary btn-block mt-4"%>
+    </div>
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th class="text-center">商品名</th>
+          <th class="text-center">価格</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% if @items.any? %>
+        <% @items.first(5).each do |item| %>
+          <tr>
+            <td class="text-center"><%= link_to item.name, "#{item.url}" %></td>
+            <td align="right" class="text-center"><%= number_with_delimiter(item.price) %>円</td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
