@@ -1,3 +1,4 @@
+<!-- items/search.html.erb -->
 <div class="row">
   <div class="col-md-8 offset-md-2 mt-4">
     <div>
@@ -14,8 +15,8 @@
       <% if @items.any? %>
         <% @items.first(5).each do |item| %>
           <tr>
-            <td class="text-center"><%= link_to item.name, "#{item.url}" %></td>
-            <td align="right" class="text-center"><%= number_with_delimiter(item.price) %>円</td>
+            <td class="text-center"><%= link_to item.response["params"]["itemName"], item.response["params"]["itemUrl"] %></td>
+            <td align="right" class="text-center"><%= item.response["params"]["itemPrice"] %>円</td>
           </tr>
         <% end %>
       <% end %>

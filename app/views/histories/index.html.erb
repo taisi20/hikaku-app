@@ -1,3 +1,4 @@
+<!-- histries/index.html.erb -->
 <div class="row">
   <div class="col-md-8 offset-md-2 mt-4">
     <h1>楽天・Amazon比較</h1>
@@ -15,13 +16,13 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>全ユーザー直近の検索履歴</th>
+            <th class="text-center">全ユーザー直近の検索履歴</th>
           </tr>
         </thead>
         <tbody>
           <% @histories.each do |history| %>
             <tr>
-              <td class="text-center"><%= link_to history.name, histories_path(history: {name: history.name}), method: :post %></td>
+              <td class="text-center"><%= link_to history.name, histories_path(history: {name: history.name}), method: :post %><span class="badge badge-secondary ml-2"><%= history.count %></span></td>
             </tr>
           <% end %>
         </tbody>
