@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :histories, only: [:index, :create]
   
   resources :articles
-  get "amazon", to: "articles#amazon"
+  get "ama", to: "articles#amazon"
   
   get "login", to: "sessions#new"
   post 'login', to: 'sessions#create'
