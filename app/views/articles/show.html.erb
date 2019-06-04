@@ -1,0 +1,7 @@
+<h1 class="mt-4">
+  <%= @article.title %>
+</h1>
+
+<p>
+  <%= markdown(@article.body).html_safe %>
+</p>
