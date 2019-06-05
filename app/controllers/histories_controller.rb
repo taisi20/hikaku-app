@@ -2,11 +2,13 @@ class HistoriesController < ApplicationController
   def index
     @history = History.new
     @histories = History.order(updated_at: :desc).page(params[:page]).per(10)
+    @articles = Article.all
   end
 
   def create
     @histories = History.order(updated_at: :desc).page(params[:page]).per(10)
     @history = History.new(history_params)
+    @articles = Article.all
     if searched?(@history.name)
       history = History.find_by(name: @history.name)
       history.count = history.count + 1

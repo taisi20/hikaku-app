@@ -1,3 +1,17 @@
 <p class="mt-4">
   <%= markdown(@article.body).html_safe %>
 </p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center">比較記事一覧</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td class="text-center"><%= link_to article.title, article %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table

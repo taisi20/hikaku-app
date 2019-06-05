@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: "histories#index"
+  root to: "articles#index"
+  
   get "search", to: "items#search"
   resources :histories, only: [:index, :create]
   

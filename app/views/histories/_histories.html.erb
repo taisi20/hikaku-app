@@ -1,0 +1,19 @@
+<% if @histories.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">全ユーザー直近の検索履歴</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @histories.each do |history| %>
+        <tr>
+          <td class="text-center"><%= link_to history.name, histories_path(history: {name: history.name}), method: :post %><span class="badge badge-secondary ml-2"><%= history.count %></span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @histories %>
+  </div>
+<% end %>
