@@ -1,4 +1,5 @@
 class HistoriesController < ApplicationController
+  require "history.rb"
   def index
     @history = History.new
     @histories = History.order(updated_at: :desc).page(params[:page]).per(10)
@@ -8,11 +9,11 @@ class HistoriesController < ApplicationController
   def create
     @histories = History.order(updated_at: :desc).page(params[:page]).per(10)
     @history = History.new(history_params)
+    @history.name = @history.name.to_s
     @articles = Article.all
     if searched?(@history.name)
       history = History.find_by(name: @history.name)
-      history.count = history.count + 1
-      history.save
+      history.history_update(history)
       flash[:success] = "正常に検索されました。"
       redirect_to search_path
     else
