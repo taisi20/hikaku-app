@@ -67,3 +67,5 @@ gem 'rakuten_web_service'
 
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
+
+gem 'rails-i18n'
