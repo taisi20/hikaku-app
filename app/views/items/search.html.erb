@@ -7,6 +7,7 @@
     <table class="table table-striped mt-4">
       <thead>
         <tr>
+          <th class="text-center">画像</th>
           <th class="text-center">商品名</th>
           <th class="text-center">価格</th>
         </tr>
@@ -15,6 +16,7 @@
       <% if @items.any? %>
         <% @items.first(5).each do |item| %>
           <tr>
+            <td><%= image_tag item.response["params"]["mediumImageUrls"][0], alt: item.response["params"]["itemName"] %></td>
             <td class="text-center"><%= link_to item.response["params"]["itemName"], item.response["params"]["itemUrl"] %></td>
             <td align="right" class="text-center"><%= item.response["params"]["itemPrice"] %>円</td>
           </tr>
