@@ -65,7 +65,7 @@ end
 #楽天API
 gem 'rakuten_web_service'
 
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'coderay'
 
 gem 'rails-i18n'

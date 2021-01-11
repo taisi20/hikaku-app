@@ -138,7 +138,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redcarpet (2.3.0)
+    redcarpet (3.5.1)
     ruby_dep (1.5.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -200,7 +200,7 @@ DEPENDENCIES
   rails (~> 5.2.2)
   rails-i18n
   rakuten_web_service
-  redcarpet (~> 2.3.0)
+  redcarpet (~> 3.5.1)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
